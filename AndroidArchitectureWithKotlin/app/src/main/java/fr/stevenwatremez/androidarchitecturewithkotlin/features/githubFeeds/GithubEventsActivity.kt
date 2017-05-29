@@ -5,11 +5,11 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import fr.stevenwatremez.androidarchitecturewithkotlin.R
-import fr.stevenwatremez.androidarchitecturewithkotlin.features.githubFeeds.model.GithubFeed
+import fr.stevenwatremez.androidarchitecturewithkotlin.features.githubFeeds.model.GithubEvent
 
-class GithubFeedsActivity : LifecycleActivity() {
+class GithubEventsActivity : LifecycleActivity() {
 
-  lateinit private var viewModel: GithubFeedsViewModel
+  lateinit private var viewModel: GithubEventsViewModel
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -19,15 +19,15 @@ class GithubFeedsActivity : LifecycleActivity() {
   }
 
   fun initFeeds() {
-    this.viewModel = ViewModelProviders.of(this).get(GithubFeedsViewModel::class.java)
-    this.viewModel.feeds.observe(this, Observer<List<GithubFeed>> { feeds ->
+    this.viewModel = ViewModelProviders.of(this).get(GithubEventsViewModel::class.java)
+    this.viewModel.feeds.observe(this, Observer<List<GithubEvent>> { feeds ->
       if (feeds != null) {
-        this.updateUI(feeds = feeds)
+        this.updateUI(events = feeds)
       }
     })
   }
 
-  fun updateUI(feeds: List<GithubFeed>) {
+  fun updateUI(events: List<GithubEvent>) {
 
   }
 }
