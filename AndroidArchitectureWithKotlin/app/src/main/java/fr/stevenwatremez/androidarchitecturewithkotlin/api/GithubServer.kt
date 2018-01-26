@@ -5,5 +5,5 @@ package fr.stevenwatremez.androidarchitecturewithkotlin.api
  */
 
 class GithubServer {
-
+  
 }
